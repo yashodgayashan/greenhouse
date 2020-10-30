@@ -74,9 +74,9 @@ class NodeSensor(models.Model):
     def __str__(self):
         return self.pk
 
-class Data():
-    node = models.ForeignKey(Node)
-    nodeSensor = models.ForeignKey(NodeSensor)
+class Data(models.Model):
+    node = models.ForeignKey(Node, on_delete=models.DO_NOTHING)
+    nodeSensor = models.ForeignKey(NodeSensor, on_delete=models.DO_NOTHING)
     data = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
 
